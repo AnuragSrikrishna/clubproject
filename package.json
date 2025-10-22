@@ -1,0 +1,53 @@
+{
+  "name": "college-clubs-app",
+  "version": "1.0.0",
+  "description": "A comprehensive college clubs management system with cross-platform deployment",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "cd backend && npm start",
+    "frontend": "cd frontend && npm run dev",
+    "install-all": "npm ci && cd backend && npm ci && cd ../frontend && npm ci",
+    "build": "cd frontend && npm run build",
+    "test": "cd backend && node test-api.js",
+    "setup": "npm run install-all",
+    "start": "npm run dev",
+    "clean": "rimraf node_modules backend/node_modules frontend/node_modules frontend/dist",
+    "deploy:windows": "deploy.bat",
+    "deploy:powershell": "powershell -ExecutionPolicy Bypass -File deploy.ps1",
+    "deploy:unix": "./deploy.sh",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  },
+  "keywords": [
+    "college",
+    "clubs",
+    "management",
+    "react",
+    "nodejs",
+    "mongodb",
+    "express",
+    "deployment"
+  ],
+  "author": "College Clubs Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "rimraf": "^5.0.5"
+  },
+  "dependencies": {
+    "axios": "^1.12.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/college-clubs-app"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/college-clubs-app/issues"
+  },
+  "homepage": "https://github.com/your-org/college-clubs-app#readme"
+}
