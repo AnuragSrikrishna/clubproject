@@ -1,0 +1,22 @@
+steps:
+  1. Rename the principal folder to college-clubs-app
+  2. run these:
+    npm install
+  cd backend; npm install
+  cd ..; cd backend; npm install
+  cd ..; cd frontend; npm install
+  
+  3.Next run this:
+  Test-Path backend/node_modules; Test-Path frontend/node_modules
+  
+  4.Next Run this:
+  taskkill /f /im node.exe #to kill any bg node tasks
+  ./deploy.ps1 -Action setup   #to setup everything in docker and modules
+  ./deploy.ps1 -Action start   #to start the program
+  ./deploy.ps1 -Action stop    #to stop the program
+  ./deploy.ps1 -Action clean   #to clear the program
+  
+  
+  5. use logins to see if everything is good
+  admin@college.edu
+  admin123
