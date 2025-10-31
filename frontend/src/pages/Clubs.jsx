@@ -192,6 +192,7 @@ const Clubs = () => {
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                       <Avatar
                         src={club.logo}
+                        className={club.logo ? 'retain-color' : ''}
                         sx={{
                           width: 48,
                           height: 48,
@@ -250,9 +251,9 @@ const Clubs = () => {
                     <Button
                       component={RouterLink}
                       to={`/clubs/${club._id}`}
-                      variant="contained"
+                      variant=""
                       fullWidth
-                      sx={{ borderRadius: 2 }}
+                      sx={{ borderRadius: 2, border: '1px solid #000' }}
                     >
                       View Details
                     </Button>

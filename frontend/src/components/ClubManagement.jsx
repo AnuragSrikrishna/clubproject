@@ -171,7 +171,7 @@ const ClubManagement = ({ club, onUpdate }) => {
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
             <Typography variant="h6">Club Announcements</Typography>
             <Button
-              variant="contained"
+              variant="outlined"
               startIcon={<Add />}
               onClick={() => setAnnouncementDialogOpen(true)}
             >
@@ -276,7 +276,7 @@ const ClubManagement = ({ club, onUpdate }) => {
                             color="success"
                             onClick={() => handleRespondToRequest(request._id, 'approved')}
                             size="small"
-                            variant="contained"
+                            variant="outlined"
                             startIcon={<CheckCircle />}
                           >
                             Approve

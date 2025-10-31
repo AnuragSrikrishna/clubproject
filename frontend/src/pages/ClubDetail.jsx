@@ -261,6 +261,7 @@ const ClubDetail = () => {
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                 <Avatar
                   src={club.logo}
+                  className={club.logo ? 'retain-color' : ''}
                   sx={{
                     width: 80,
                     height: 80,
@@ -353,13 +354,14 @@ const ClubDetail = () => {
           <Box sx={{ display: 'flex', gap: 2, mb: 3, flexWrap: 'wrap' }}>
             {canJoin && (
               <Button
-                variant="contained"
-                startIcon={<Add />}
-                onClick={() => setJoinDialogOpen(true)}
-                size="large"
-              >
-                Join Club
-              </Button>
+                  variant=" "
+                  startIcon={<Add />}
+                  onClick={() => setJoinDialogOpen(true)}
+                  size="large"
+                  sx={{ border: '1px solid #000' }}
+                >
+                  Join Club
+                </Button>
             )}
             {isPending && (
               <Button variant="outlined" disabled size="large">
@@ -378,7 +380,7 @@ const ClubDetail = () => {
             )}
             {canManageClub && (
               <Button 
-                variant="contained" 
+                variant="outlined" 
                 color="secondary" 
                 size="large"
                 startIcon={<Settings />}
@@ -399,7 +401,7 @@ const ClubDetail = () => {
             )}
             {!isAuthenticated && (
               <Button
-                variant="contained"
+                variant="outlined"
                 onClick={() => navigate('/login')}
                 size="large"
               >

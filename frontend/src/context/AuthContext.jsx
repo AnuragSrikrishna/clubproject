@@ -157,7 +157,8 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     dispatch({ type: actionTypes.LOGOUT })
     setAuthToken(null)
-    toast.success('Logged out successfully')
+    // Show logout toast for 2 seconds only
+    toast.success('Logged out successfully', { duration: 1000 })
   }
 
   // Update profile

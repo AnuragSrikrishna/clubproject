@@ -1,0 +1,104 @@
+/* Global monochrome overrides: force black & white, keep layout and spacing unchanged */
+
+:root {
+  --mono-bg: #ffffff;
+  --mono-fg: #000000;
+  --mono-muted: #666666;
+  --mono-border: #e0e0e0;
+}
+
+html, body, #root {
+  background: var(--mono-bg) !important;
+  color: var(--mono-fg) !important;
+}
+
+/* Force images and icons to grayscale */
+/* Default: force images and icons to grayscale */
+img, svg, .MuiAvatar-root {
+  filter: grayscale(100%) contrast(95%) brightness(95%);
+}
+
+/* Exempt specific images/avatars from grayscale when they need to keep original color */
+.retain-color,
+.retain-color img,
+.retain-color svg,
+.retain-color .MuiAvatar-root {
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Links and interactive text should be black/grey */
+a, a:visited {
+  color: var(--mono-fg) !important;
+}
+
+/* Make backgrounds white and borders subtle */
+.MuiPaper-root, .MuiCard-root, .MuiAppBar-root, .MuiToolbar-root {
+  background-color: var(--mono-bg) !important;
+  color: var(--mono-fg) !important;
+  border-color: var(--mono-border) !important;
+}
+
+/* Buttons: contained should be black with white text, outlined should be black border with white background */
+button, .MuiButton-root {
+  color: var(--mono-fg) !important;
+}
+
+.MuiButton-contained {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.MuiButton-outlined {
+  border-color: var(--mono-fg) !important;
+  color: var(--mono-fg) !important;
+}
+
+/* Inputs and form controls */
+.MuiInputBase-root, input, textarea, .MuiFormControl-root {
+  color: var(--mono-fg) !important;
+}
+
+.MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border-color: var(--mono-border) !important;
+}
+
+/* Make any background gradients solid white where possible */
+[style*="linear-gradient"], [style*="gradient"] {
+  background-image: none !important;
+  background-color: var(--mono-bg) !important;
+}
+
+/* Toast notifications */
+.__react_hot_toast_container, .__react_hot_toast_wrapper, .__react_toast {
+  filter: grayscale(100%) !important;
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Keep hover/active states visible but monochrome */
+.MuiButton-root:hover, .MuiListItem-root:hover {
+  background-color: rgba(0,0,0,0.06) !important;
+}
+
+/* Tables, lists */
+.MuiTableCell-root, .MuiListItem-root {
+  color: var(--mono-fg) !important;
+}
+
+/* Ensure icons use black fill where possible */
+.MuiSvgIcon-root {
+  color: var(--mono-fg) !important;
+  fill: var(--mono-fg) !important;
+}
+
+/* Force any inline colors (rgb/hsl/hex) to be neutral via mix-blend-mode fallback in case styles are inline */
+* {
+  mix-blend-mode: normal;
+}
+
+/* Specific rule: ensure AppBar is black */
+.MuiAppBar-root {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}

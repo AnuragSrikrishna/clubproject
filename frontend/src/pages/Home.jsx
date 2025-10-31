@@ -45,10 +45,10 @@ const Home = () => {
   ]
 
   const stats = [
-    { number: '50+', label: 'Active Clubs' },
-    { number: '1000+', label: 'Student Members' },
-    { number: '200+', label: 'Events This Year' },
-    { number: '8', label: 'Categories' },
+    { number: '5+', label: 'Active Clubs' },
+    { number: '100+', label: 'Student Members' },
+    { number: '3+', label: 'Events This Year' },
+    { number: '4', label: 'Categories' },
   ]
 
   return (
@@ -66,7 +66,7 @@ const Home = () => {
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12} md={6}>
               <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold' }}>
-                Welcome to ClubConnect
+                Welcome to SANGAM
               </Typography>
               <Typography variant="h5" sx={{ mb: 4, opacity: 0.9 }}>
                 Your gateway to discovering, joining, and managing college clubs. Connect with fellow students and make
@@ -159,16 +159,30 @@ const Home = () => {
                   sx={{
                     width: '100%',
                     height: 300,
-                    bgcolor: alpha(theme.palette.common.white, 0.1),
+                    bgcolor: '#ffffff',
                     borderRadius: 2,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}
                 >
-                  <Typography variant="h4" sx={{ opacity: 0.7 }}>
-                    🎓📚🤝
-                  </Typography>
+                  {/* Attempt to load site logo from public folder; fallback to emojis if missing */}
+                  <Box sx={{ width: 200, height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <img
+                      src="/images/logo.png"
+                      alt="SANGAM logo"
+                      style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block' }}
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                        // reveal emoji fallback by removing display:none from sibling
+                        const fallback = e.target.nextSibling
+                        if (fallback) fallback.style.display = 'block'
+                      }}
+                    />
+                    <Typography variant="h4" sx={{ opacity: 0.7, display: 'none' }}>
+                      🎓📚🤝
+                    </Typography>
+                  </Box>
                 </Box>
               </Box>
             </Grid>
@@ -209,7 +223,7 @@ const Home = () => {
         {/* Features Section */}
         <Box sx={{ mb: 8 }}>
           <Typography variant="h3" component="h2" align="center" gutterBottom sx={{ mb: 6, fontWeight: 'bold' }}>
-            Why Choose ClubConnect?
+            Why Choose SANGAM?
           </Typography>
           <Grid container spacing={4}>
             {features.map((feature, index) => (
@@ -225,25 +239,55 @@ const Home = () => {
                     },
                   }}
                 >
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      mb: 2,
-                      '& > *': {
-                        fontSize: 48,
-                        color: 'primary.main',
-                      },
-                    }}
-                  >
-                    {feature.icon}
-                  </Box>
-                  <Typography variant="h6" component="h3" gutterBottom sx={{ fontWeight: 'bold' }}>
-                    {feature.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {feature.description}
-                  </Typography>
+                  {index < 2 ? (
+                    <Box
+                      component={RouterLink}
+                      to={index === 0 ? '/clubs' : '/events'}
+                      sx={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
+                    >
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          justifyContent: 'center',
+                          mb: 2,
+                          '& > *': {
+                            fontSize: 48,
+                            color: 'primary.main',
+                          },
+                        }}
+                      >
+                        {feature.icon}
+                      </Box>
+                      <Typography variant="h6" component="h3" gutterBottom sx={{ fontWeight: 'bold' }}>
+                        {feature.title}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {feature.description}
+                      </Typography>
+                    </Box>
+                  ) : (
+                    <>
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          justifyContent: 'center',
+                          mb: 2,
+                          '& > *': {
+                            fontSize: 48,
+                            color: 'primary.main',
+                          },
+                        }}
+                      >
+                        {feature.icon}
+                      </Box>
+                      <Typography variant="h6" component="h3" gutterBottom sx={{ fontWeight: 'bold' }}>
+                        {feature.title}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {feature.description}
+                      </Typography>
+                    </>
+                  )}
                 </Card>
               </Grid>
             ))}
@@ -261,10 +305,7 @@ const Home = () => {
               { name: 'Sports & Recreation', icon: '⚽', color: '#10B981' },
               { name: 'Arts & Culture', icon: '🎨', color: '#8B5CF6' },
               { name: 'Technology', icon: '💻', color: '#F59E0B' },
-              { name: 'Community Service', icon: '🤝', color: '#EF4444' },
-              { name: 'Professional', icon: '💼', color: '#6B7280' },
-              { name: 'Special Interest', icon: '🌟', color: '#EC4899' },
-              { name: 'Greek Life', icon: '🏛️', color: '#7C3AED' },
+            
             ].map((category) => (
               <Chip
                 key={category.name}
@@ -301,10 +342,10 @@ const Home = () => {
             Ready to Get Started?
           </Typography>
           <Typography variant="h6" color="text.secondary" sx={{ mb: 4 }}>
-            Join ClubConnect today and start your journey of discovery, connection, and growth.
+            Join SANGAM  today and start your journey of discovery, connection, and growth.
           </Typography>
           {!isAuthenticated && (
-            <Button variant="contained" size="large" component={RouterLink} to="/register" sx={{ mr: 2 }}>
+            <Button variant="outlined" size="large" component={RouterLink} to="/register" sx={{ mr: 2 }}>
               Sign Up Now
             </Button>
           )}

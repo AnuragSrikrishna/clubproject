@@ -1,0 +1,74 @@
+# --- OS / Editor ---
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+*.iml
+
+# VS Code / JetBrains
+.vscode/
+.idea/
+*.code-workspace
+.history/
+
+# --- Node / Package managers ---
+node_modules/
+.npm/
+.pnpm-store/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+backend/logs/*
+!backend/logs/.gitkeep
+
+# --- Environment files (keep examples) ---
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# --- Build & caches ---
+dist/
+build/
+.tmp/
+.tmp*/
+cache/
+.cache/
+tmp/
+temp/
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# --- Frontend (Vite/React) ---
+frontend/dist/
+frontend/.vite/
+frontend/.cache/
+frontend/coverage/
+
+# --- Backend (Express) ---
+# (No compiled output by default; add if you configure one)
+
+# --- Docker / Compose (local overrides) ---
+docker-compose.override.yml
+.env.docker
+
+# --- Misc ---
+*.local

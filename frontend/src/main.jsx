@@ -9,6 +9,7 @@ import axios from 'axios'
 
 import App from './App.jsx'
 import { AuthProvider } from './context/AuthContext'
+import './styles/mono.css'
 
 // Configure axios base URL
 axios.defaults.baseURL = 'http://localhost:5000'
@@ -23,32 +24,33 @@ const queryClient = new QueryClient({
   },
 })
 
-// Create theme
+// Create a monochrome (black-and-white) theme
 const theme = createTheme({
   palette: {
+    mode: 'light',
     primary: {
-      main: '#1976d2',
-      light: '#42a5f5',
-      dark: '#1565c0',
+      main: '#000000',
+      contrastText: '#ffffff',
     },
     secondary: {
-      main: '#dc004e',
+      main: '#000000',
+      contrastText: '#ffffff',
     },
     background: {
-      default: '#f5f5f5',
+      default: '#ffffff',
+      paper: '#ffffff',
     },
+    text: {
+      primary: '#000000',
+      secondary: '#444444',
+    },
+    divider: '#e0e0e0',
   },
   typography: {
     fontFamily: 'Roboto, Arial, sans-serif',
-    h4: {
-      fontWeight: 600,
-    },
-    h5: {
-      fontWeight: 600,
-    },
-    h6: {
-      fontWeight: 600,
-    },
+    h4: { fontWeight: 600 },
+    h5: { fontWeight: 600 },
+    h6: { fontWeight: 600 },
   },
   components: {
     MuiButton: {
@@ -57,13 +59,35 @@ const theme = createTheme({
           textTransform: 'none',
           borderRadius: 8,
         },
+        contained: {
+          backgroundColor: '#000000',
+          color: '#ffffff',
+          '&:hover': { backgroundColor: '#111111' },
+        },
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#000000',
+          color: '#ffffff',
+        },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
           borderRadius: 12,
-          boxShadow: '0 2px 12px rgba(0,0,0,0.1)',
+          boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
+          backgroundColor: '#ffffff',
+        },
+      },
+    },
+    MuiAvatar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#000000',
+          color: '#ffffff',
         },
       },
     },
@@ -88,8 +112,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               toastOptions={{
                 duration: 4000,
                 style: {
-                  background: '#363636',
-                  color: '#fff',
+                  background: '#000000',
+                  color: '#ffffff',
                 },
               }}
             />

@@ -89,7 +89,7 @@ const Navbar = () => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        ClubConnect
+        SANGAM
       </Typography>
       <Divider />
       <List>
@@ -163,9 +163,24 @@ const Navbar = () => {
               textDecoration: 'none',
               color: 'inherit',
               fontWeight: 'bold',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1,
             }}
           >
-            ClubConnect
+            {/* App logo (place a file at public/logo.png to show) */}
+            <Box component="span" sx={{ display: 'inline-flex', alignItems: 'center' }}>
+              <img
+                src="/images/logo.png"
+                alt="SANGAM logo"
+                style={{ width: 65, height: 65, objectFit: 'contain', display: 'inline-block' }}
+                onError={(e) => {
+                  // hide image element if not found
+                  e.target.style.display = 'none'
+                }}
+              />
+            </Box>
+            
           </Typography>
 
           {!isMobile && (

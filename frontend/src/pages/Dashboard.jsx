@@ -202,7 +202,7 @@ const Dashboard = () => {
                 <Button
                   component={RouterLink}
                   to="/clubs"
-                  variant="contained"
+                  variant="outlined"
                   size="large"
                 >
                   Explore Clubs
@@ -220,17 +220,18 @@ const Dashboard = () => {
                         alignItems: 'center',
                       }}
                     >
-                      <Avatar
-                        src={club.logo}
-                        sx={{
-                          width: 50,
-                          height: 50,
-                          mr: 2,
-                          bgcolor: club.category?.color || 'primary.main',
-                        }}
-                      >
-                        {club.category?.icon || club.name.charAt(0)}
-                      </Avatar>
+                        <Avatar
+                          src={club.logo}
+                          className={club.logo ? 'retain-color' : ''}
+                          sx={{
+                            width: 50,
+                            height: 50,
+                            mr: 2,
+                            bgcolor: club.category?.color || 'primary.main',
+                          }}
+                        >
+                          {club.category?.icon || club.name.charAt(0)}
+                        </Avatar>
                       <ListItemText
                         primary={
                           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -292,7 +293,7 @@ const Dashboard = () => {
                 <Button
                   component={RouterLink}
                   to="/create-club"
-                  variant="contained"
+                  variant="outlined"
                   fullWidth
                   startIcon={<Add />}
                   sx={{ py: 1.5 }}
@@ -305,7 +306,7 @@ const Dashboard = () => {
                 <Button
                   component={RouterLink}
                   to="/admin"
-                  variant="contained"
+                  variant="outlined"
                   color="secondary"
                   fullWidth
                   startIcon={<TrendingUp />}
