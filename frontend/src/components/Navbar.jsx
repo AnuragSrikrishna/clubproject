@@ -82,9 +82,7 @@ const Navbar = () => {
   }
 
   // Add test page for development (when authenticated)
-  if (isAuthenticated) {
-    authenticatedItems.push({ text: 'Test Suite', path: '/test', icon: <AdminPanelSettings /> })
-  }
+
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
